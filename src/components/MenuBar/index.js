@@ -7,6 +7,8 @@ import { Bulb as Light } from "@styled-icons/boxicons-regular/Bulb"
 import { Grid } from '@styled-icons/boxicons-solid/Grid'
 import { ThList as List } from '@styled-icons/fa-solid/ThList'
 
+import getThemeColor from "../../utils/getThemeColor"
+
 import * as S from './styled'
 
 const MenuBar = () => {
@@ -27,10 +29,24 @@ const MenuBar = () => {
     return (
         <S.MenuBarWrapper>
             <S.MenuBarGroup>
-                <S.MenuBarLink to="/" title="Voltar para Home">
+                <S.MenuBarLink 
+                    to="/" 
+                    title="Voltar para Home"
+                    cover
+                    direction="right"
+                    bg={getThemeColor()}
+                    duration={0.6}
+                >
                     <S.MenuBarItem><Home /></S.MenuBarItem>
                 </S.MenuBarLink>
-                <S.MenuBarLink to="/search/" title="Pesquisar">
+                <S.MenuBarLink 
+                    to="/search/" 
+                    title="Pesquisar"
+                    cover
+                    direction="right"
+                    bg={getThemeColor()}
+                    duration={0.6}
+                >
                     <S.MenuBarItem><Search /></S.MenuBarItem>
                 </S.MenuBarLink>
             </S.MenuBarGroup>
@@ -45,7 +61,7 @@ const MenuBar = () => {
                 <S.MenuBarItem 
                     title="Mudar a visualização"
                     onClick={() => { window.__setPreferredDisplay(isListMode ? 'grid' : 'list') }}
-                    className={display}
+                    className="display"
                 >
                     {isListMode ? <Grid /> : <List />}
                 </S.MenuBarItem> 
